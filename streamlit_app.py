@@ -38,7 +38,7 @@ try:
     streamlit.dataframe(fruityvice_normalized)                                              # Output result as table
 
 except URLError as e:
-  streamlit.stop()        # Don't run anything past here while we troubleshoot
+  streamlit.error()        # returns the error
 
 # Adding the connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
