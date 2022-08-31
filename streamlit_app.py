@@ -32,7 +32,7 @@ try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?', 'Kiwi')
   if not fruit_choice:
     streamlit.write('The user entered', fruit_choice)
-   else:
+  else:
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)  # requests
     fruityvice_normalized = pd.json_normalize(fruityvice_response.json())                   # Take the json version of the response and normalize it
     streamlit.dataframe(fruityvice_normalized)                                              # Output result as table
