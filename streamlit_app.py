@@ -42,16 +42,11 @@ try:
   else:
     get_fruit = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(get_fruit)
-
-#except URLError as e:
-  #streamlit.error()        # returns the error
 except Exception as e:
   print(f'{e}')
 
 
 streamlit.header("The fruit load list contains:")
-
-# Snowflake function
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * FROM PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST")
@@ -64,7 +59,7 @@ if streamlit.button('Get Fruit Load List'):
   my_cnx.close()
   streamlit.dataframe(my_data_rows)
 
-
+"""
 # Allow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
@@ -76,3 +71,5 @@ if streamlit.button('Add a Fruit to the List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   insert_fruits = insert_row_snowflake(add_my_fruit)
   streamlit.dataframe(insert_fruits)
+
+"""
