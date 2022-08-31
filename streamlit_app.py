@@ -32,7 +32,6 @@ def get_fruityvice_data(fruit_choice):
   fruityvice_normalized = pd.json_normalize(fruityvice_response.json())                   # Take the json version of the response and normalize it
   return fruityvice_normalized
 
-
 # Display fruityvice api response
 streamlit.header('Fruityvice Fruit Advice!')
 try:
@@ -69,5 +68,6 @@ add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfr
 if streamlit.button('Add a Fruit to the List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   insert_fruits = insert_row_snowflake(add_my_fruit)
-  my_cnx.close()
-  streamlit.dataframe(insert_fruits)
+  #my_cnx.close()
+  #streamlit.dataframe(insert_fruits)
+  print(insert_fruits)
