@@ -37,8 +37,9 @@ try:
     fruityvice_normalized = pd.json_normalize(fruityvice_response.json())                   # Take the json version of the response and normalize it
     streamlit.dataframe(fruityvice_normalized)                                              # Output result as table
 
-except URLError as e:
+#except URLError as e:
   #streamlit.error()        # returns the error
+except Exception as e:
   print(f'{e}')
 
 # Adding the connector
